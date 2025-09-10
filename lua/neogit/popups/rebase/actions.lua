@@ -138,7 +138,8 @@ function M.subset(popup)
   end
 
   if start then
-    git.rebase.onto(start, newbase, popup:get_arguments())
+    local parent = git.log.parent(start)
+    git.rebase.onto(parent, newbase, popup:get_arguments())
   end
 end
 
